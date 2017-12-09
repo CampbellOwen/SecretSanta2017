@@ -1,0 +1,47 @@
+{
+    "participants": {
+        "Owen": {
+            "ban-list": [
+                "Heather"
+            ]
+        },
+        "Braden": {
+            "ban-list": [
+                "Courtney"
+            ]
+        },
+        "Kellen": {
+            "ban-list": [
+                "Alexis"
+            ]
+        },
+        "Jason": {
+            "ban-list": [
+                "Samantha"
+            ]
+        },
+        "Michael": {
+            "ban-list": []
+        },
+        "Heather": {
+            "ban-list": [
+                "Owen"
+            ]
+        },
+        "Courtney": {
+            "ban-list": [
+                "Braden"
+            ]
+        },
+        "Alexis": {
+            "ban-list": [
+                "Kellen"
+            ]
+        },
+        "Samantha": {
+            "ban-list": [
+                "Jason"
+            ]
+        }
+    }
+}
