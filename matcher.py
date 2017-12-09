@@ -1,5 +1,6 @@
 import json
 import random
+from datetime import datetime
 
 
 class Secret_Santa_Matcher:
@@ -10,8 +11,7 @@ class Secret_Santa_Matcher:
         for person in participants:
             self.people[ person ] = [ p for p in participants if not p == person and p not in participants[ person ][ 'ban-list' ] ] 
 
-
-        self.seed = seed
+        self.seed = seed if not seed is None else str( datetime.now() )
 
     def set_seed( self, seed ):
         self.seed = seed
