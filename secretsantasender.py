@@ -11,13 +11,17 @@ sid = os.environ[ 'TWILIO_SID' ]
 auth = os.environ[ 'TWILIO_AUTH' ]
 number = os.environ[ 'TWILIO_NUMBER' ]
 
+
 client = Client( sid, auth )
 
 participants = {}
 with open( 'participants.json', 'r' ) as p_file:
     participants = json.loads( p_file.read() )[ 'participants']
 
-matcher = Secret_Santa_Matcher( participants, None )
+organizer = 'Owen'
+
+seed = os.environ[ 'SSS_SEED' ] if 'SSS_SEED' in os.environ else None
+matcher = Secret_Santa_Matcher( participants, seed )
 
 matches = matcher.match()
 
@@ -25,4 +29,6 @@ message = "Hello {0}, your Secret Santa 2017 match is: {1}. Reminder: Keep the g
 
 for giver in matches:
     client.api.account.messages.create( to=participants[ giver ]['number'], from_=number, body=message.format( giver, matches[ giver ] ) )
+
+client.api.account.messages.create( to=participants[ organizer ]['number'], from_=number, body='Secret Santa Matcher seed was: {0}'.format( matcher.seed ) )
 
