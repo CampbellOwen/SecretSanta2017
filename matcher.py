@@ -42,12 +42,9 @@ class Secret_Santa_Matcher:
 
             matches[ first ] = second
         if tries > len( self.people ) * 2:
-           print( "retrying :( " )
            return self.match()
 
         return matches
-
-
 
     @staticmethod
     def from_file( filepath ):
@@ -57,7 +54,4 @@ class Secret_Santa_Matcher:
         return Secret_Santa_Matcher( participants, None )
 
 
-matcher = Secret_Santa_Matcher.from_file( 'participants.json' )
-# print( matcher.people )
-print( matcher.match() )
 
